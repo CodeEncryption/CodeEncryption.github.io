@@ -84,24 +84,57 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###</p>
-<h2 id="一、新建vue项目vuelogin"><a href="#一、新建vue项目vuelogin" class="headerlink" title="一、新建vue项目vuelogin"></a>一、新建vue项目vuelogin</h2><p>新建项目并用webpack进行打包和管理</p>
+        <p>这个项目是为了idea编辑器的练手，为了熟悉idea的使用而进行的，为之后的正式开发预热。</p>
+<h1 id="一、前端"><a href="#一、前端" class="headerlink" title="一、前端"></a>一、前端</h1><h2 id="1-新建vue项目vuelogin"><a href="#1-新建vue项目vuelogin" class="headerlink" title="1.新建vue项目vuelogin"></a>1.新建vue项目vuelogin</h2><p>新建项目并用webpack进行打包和管理。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack vuelogin</span><br></pre></td></tr></table></figure>
 
-<p>按照bash的提示一步步完成设置即可（不懂怎么设置就按回车）</p>
-<h2 id="二、安装iview"><a href="#二、安装iview" class="headerlink" title="二、安装iview"></a>二、安装iview</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save iview</span><br></pre></td></tr></table></figure>
+<p>按照bash的提示一步步完成设置即可（不懂怎么设置就按回车）。</p>
+<h2 id="2-安装iview"><a href="#2-安装iview" class="headerlink" title="2.安装iview"></a>2.安装iview</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save iview</span><br></pre></td></tr></table></figure>
 
-<h2 id="三、在vue的main-js中导入iview"><a href="#三、在vue的main-js中导入iview" class="headerlink" title="三、在vue的main.js中导入iview"></a>三、在vue的main.js中导入iview</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> iView <span class="keyword">from</span> <span class="string">'iview'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'iview/dist/styles/iview.css'</span> <span class="comment">// 使用 CSS</span></span><br><span class="line">Vue.use(iView)</span><br></pre></td></tr></table></figure>
+<h2 id="3-在vue的main-js中导入iview"><a href="#3-在vue的main-js中导入iview" class="headerlink" title="3.在vue的main.js中导入iview"></a>3.在vue的main.js中导入iview</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> iView <span class="keyword">from</span> <span class="string">'iview'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'iview/dist/styles/iview.css'</span> <span class="comment">// 使用 CSS</span></span><br><span class="line">Vue.use(iView)</span><br></pre></td></tr></table></figure>
 
-<p>如果idea报错是因为没有启用es6语法支持，按alt+Enter启用即可</p>
-<h2 id="四、使用form表单组件"><a href="#四、使用form表单组件" class="headerlink" title="四、使用form表单组件"></a>四、使用form表单组件</h2><p>在项目component文件夹下新建Login.vue组件<br>打开<a href="https://www.iviewui.com/" target="_blank" rel="noopener">官方文档</a>，找到我们需要的form表单组件copy示例代码后，直接黏贴进Login.vue中。更多组件的用法请参考<a href="https://www.iviewui.com/" target="_blank" rel="noopener">官方文档</a>，文档中有各个组件的用法和示例代码。</p>
-<h2 id="五、运行"><a href="#五、运行" class="headerlink" title="五、运行"></a>五、运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<p>如果idea报错是因为没有启用es6语法支持，按alt+Enter启用即可。</p>
+<h2 id="4-使用form表单组件"><a href="#4-使用form表单组件" class="headerlink" title="4.使用form表单组件"></a>4.使用form表单组件</h2><p>首先在项目component文件夹下新建Login.vue组件。<br>接着打开<a href="https://www.iviewui.com/" target="_blank" rel="noopener">官方文档</a>，找到我们需要的form表单组件copy示例代码后，直接黏贴进Login.vue中。<br>iview还有很多的组件，用法请参考<a href="https://www.iviewui.com/" target="_blank" rel="noopener">官方文档</a>，文档中有各个组件的用法和示例代码。</p>
+<h2 id="5-通过proxyTable设置跨域"><a href="#5-通过proxyTable设置跨域" class="headerlink" title="5.通过proxyTable设置跨域"></a>5.通过proxyTable设置跨域</h2><p>设置跨域的方法不止一种，由于本项目是由webpack构建的，使用这个方法就比较方便了，只需要对vue项目里的config文件内的index.js进行修改：</p>
+<ul>
+<li><p>把开发环境下的proxyTable修改为：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">proxyTable: &#123;</span><br><span class="line">  <span class="string">'/rest'</span>: &#123;</span><br><span class="line">    target: <span class="string">'http://localhost:8081'</span>,<span class="comment">//之后后台的接口域名和端口号要与这个一致</span></span><br><span class="line">    changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    pathRewrite: &#123;</span><br><span class="line">      <span class="string">'^/rest'</span>: <span class="string">'/rest'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>至此，前端的内容就完成了，运行即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
+<h1 id="二、后台"><a href="#二、后台" class="headerlink" title="二、后台"></a>二、后台</h1><h2 id="1-新建项目loginserver"><a href="#1-新建项目loginserver" class="headerlink" title="1.新建项目loginserver"></a>1.新建项目loginserver</h2><ul>
+<li>新建一个项目，类型选择Spring Initializr点击下一步</li>
+<li>修改Artifact为loginserver,点击下一步</li>
+<li>选择web并勾选Spring Web Starter，点击下一步</li>
+<li>点击完成生成初始项目</li>
+</ul>
+<h2 id="2-创建User类"><a href="#2-创建User类" class="headerlink" title="2.创建User类"></a>2.创建User类</h2><p>在com.example.loginserver下创建User.java,getter和setter就不贴上来了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.loginserver;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.persistence.Entity;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String username;<span class="comment">//这两个需要和前端定义的输入一致</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    ...<span class="comment">//getter&amp;&amp;setter</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-创建LoginController"><a href="#3-创建LoginController" class="headerlink" title="3.创建LoginController"></a>3.创建LoginController</h2><p>在com.example.loginserver下创建LoginController</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/login"</span>, method = RequestMethod.POST)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">Login</span><span class="params">(@RequestBody User user)</span> </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">"用户名"</span> + user.getUsername());</span><br><span class="line">        System.out.printf(<span class="string">"用户密码"</span> + user.getPassword());</span><br><span class="line">        <span class="keyword">return</span> Boolean.TRUE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-修改LoginserverApplication"><a href="#4-修改LoginserverApplication" class="headerlink" title="4.修改LoginserverApplication"></a>4.修改LoginserverApplication</h2><p>spring boot 会默认加载org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration这个类，而DataSourceAutoConfiguration类使用了@Configuration注解向spring注入了dataSource bean，又因为项目中并没有关于dataSource相关的配置信息，所以当spring创建dataSource bean时因缺少相关的信息就会报错。</p>
+<p>解决办法：</p>
+<ul>
+<li>1、在@SpringBootApplication注解上加上exclude，解除自动加载DataSourceAutoConfiguration。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line">修改为</span><br><span class="line"><span class="meta">@SpringBootApplication</span>(exclude=DataSourceAutoConfiguration.class)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>2、在parent项目的pom.xml文件中保存所有子模块的共有jar依赖，非共有的依赖则在各模块自身的pom.xml文件中进行申明。建议采用此方法，好处在于各模块的依赖不会相互产生干扰。</p>
+<h2 id="5-设置后台运行的端口"><a href="#5-设置后台运行的端口" class="headerlink" title="5.设置后台运行的端口"></a>5.设置后台运行的端口</h2><p>因为默认8080端口被前端占了，需要修改端口解决冲突:<br>打开main下的resources下的application.properties，添加一句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.port=<span class="number">8081</span><span class="comment">//和前端的接口地址的端口一致就行</span></span><br></pre></td></tr></table></figure>
+
+<p>至此整个项目就都完成了</p>
+<h1 id="三、运行测试"><a href="#三、运行测试" class="headerlink" title="三、运行测试"></a>三、运行测试</h1><p>把后台和前端项目都跑起来，打开网页即可测试。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/vuejs前后端分离/" data-id="cjxv3ptee0000i4qylxkxevpn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/vuejs前后端分离/" data-id="cjxv7h8zw0001jgqyz0j2jiqc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -150,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/05/hello-world/" data-id="cjxv3ptek0001i4qyg5na0mzm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/05/hello-world/" data-id="cjxv7h8zm0000jgqy58wqk8qu" class="article-share-link">Share</a>
       
       
     </footer>
