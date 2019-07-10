@@ -1625,7 +1625,7 @@ code {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  background-image: url(" ");
+  background-image: url("/images/bg.jpg");
 }
 #footer a {
   border-bottom: 0;
